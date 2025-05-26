@@ -1,0 +1,79 @@
+Metadata-Version: 2.4
+Name: ncc-video-extractor
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: <3.12,>3.8
+Description-Content-Type: text/markdown
+Requires-Dist: openai-whisper>=20240930
+Requires-Dist: yt-dlp[curl-cffi,default]>=2024.10.22
+
+# ncc-video-extractor
+
+This project uses `yt-dlp` to download videos.
+
+## Installation
+
+Ensure you have Python 3.13 or higher and `uv` installed. You can find `uv` installation instructions [here](https://github.com/astral-sh/uv).
+
+**Additionally, `yt-dlp` often relies on `ffmpeg` for merging video and audio formats or for converting video formats. Please ensure `ffmpeg` is installed on your system. You can typically install it using your system's package manager (e.g., `sudo apt install ffmpeg` on Debian/Ubuntu, `brew install ffmpeg` on macOS).**
+
+1.  Clone the repository.
+2.  Create and activate a virtual environment using `uv`:
+    ```sh
+    uv venv
+    source .venv/bin/activate # On Windows use `.venv\Scripts\activate`
+    ```
+    Alternatively, you can often run `uv` commands directly without explicitly activating the environment if `uv` is configured to detect the project's virtual environment.
+3.  Install dependencies using `uv`:
+    ```sh
+    uv pip install -e .
+    # or to sync with pyproject.toml
+    # uv sync
+    ```
+
+## Usage
+
+### Downloading Vimeo Videos
+
+To download a Vimeo video, you can use the `yt-dlp` command.
+
+**Basic Download:**
+```sh
+yt-dlp <VIDEO_URL>
+```
+
+**Password-Protected Videos:**
+
+If the Vimeo video is password-protected, use the `--video-password` option:
+```sh
+yt-dlp --video-password YOUR_PASSWORD <VIDEO_URL>
+```
+Replace `YOUR_PASSWORD` with the actual password for the video.
+
+**Specifying File Formats:**
+
+You can specify the desired video format using the `-f` or `--format` option.
+
+To list available formats for a video:
+```sh
+yt-dlp -F <VIDEO_URL>
+# or
+yt-dlp --list-formats <VIDEO_URL>
+```
+
+To download a specific format (e.g., mp4):
+```sh
+yt-dlp -f mp4 <VIDEO_URL>
+```
+
+To download the best available quality:
+```sh
+yt-dlp -f best <VIDEO_URL>
+```
+
+For more advanced format selection (e.g., best video and best audio, then merge):
+```sh
+yt-dlp -f "bestvideo+bestaudio/best" <VIDEO_URL>
+```
+
+Refer to the [yt-dlp documentation](https://github.com/yt-dlp/yt-dlp#format-selection) for more details on format selection.
