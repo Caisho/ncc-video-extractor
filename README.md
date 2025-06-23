@@ -4,7 +4,7 @@ This project uses `yt-dlp` to download videos.
 
 ## Installation
 
-Ensure you have Python 3.13 or higher and `uv` installed. You can find `uv` installation instructions [here](https://github.com/astral-sh/uv).
+Ensure you have Python 3.11 or lower and `uv` installed. You can find `uv` installation instructions [here](https://github.com/astral-sh/uv).
 
 **Additionally, `yt-dlp` often relies on `ffmpeg` for merging video and audio formats or for converting video formats. Please ensure `ffmpeg` is installed on your system. You can typically install it using your system's package manager (e.g., `sudo apt install ffmpeg` on Debian/Ubuntu, `brew install ffmpeg` on macOS).**
 
@@ -115,7 +115,7 @@ The transcription will be saved in various formats (e.g., `.txt`, `.srt`, `.vtt`
     To get multiple specific formats, you can list them (the exact syntax might depend on the whisper version, often comma-separated or by repeating the flag, check `whisper --help`):
     ```sh
     # Example for comma-separated, check documentation if this specific syntax doesn't work
-    whisper your_video.mp4 --model medium --output_format txt,srt 
+    whisper your_video.mp4 --model medium --output_format txt --verbose False
     ```
 
 **Other models:**
@@ -125,3 +125,4 @@ whisper your_video.mp4 --model base
 ```
 
 For more advanced options and features of `openai-whisper`, refer to its [official documentation](https://github.com/openai/whisper).
+
