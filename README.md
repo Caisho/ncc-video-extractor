@@ -1,6 +1,6 @@
 # ncc-video-extractor
 
-This project uses `yt-dlp` to download videos.
+A comprehensive tool for downloading videos and transcribing audio. This project combines `yt-dlp` for video downloading (with special support for Vimeo videos, including password-protected content) and `openai-whisper` for high-quality audio transcription from video files.
 
 ## Installation
 
