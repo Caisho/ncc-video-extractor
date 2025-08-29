@@ -1,7 +1,7 @@
 [project]
 name = "ncc-video-extractor"
 version = "0.1.0"
-description = "Add your description here"
+description = "A tool for downloading videos (especially Vimeo) using yt-dlp and transcribing audio using OpenAI Whisper"
 readme = "README.md"
 requires-python = ">3.8, <3.12"
 dependencies = [
